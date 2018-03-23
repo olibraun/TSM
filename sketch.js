@@ -8,6 +8,8 @@ let indexArray = [...Array(numberOfCities).keys()];
 
 let distanceMatrix = [];
 
+let distanceText;
+
 function setup() {
   createCanvas(400, 400);
   background(51);
@@ -16,6 +18,8 @@ function setup() {
   }
   // Create distance matrix:
   fillDistanceMatrix();
+  // Dom element for current distance
+  distanceText = createP();
 }
 
 function draw() {
@@ -23,6 +27,8 @@ function draw() {
     city.show();
   });
   display(indexArray);
+  const currentDistance = calcDistance(indexArray);
+  distanceText.html(currentDistance);
 }
 
 class City {
@@ -68,4 +74,14 @@ function fillDistanceMatrix() {
       distanceMatrix[i][j] = dist;
     }
   }
+}
+
+function calcDistance(order) {
+  let sum = 0;
+  for(let i=0; i<order.length-1; i++) {
+    const m = order[i];
+    const n = order[i+1];
+    sum += distanceMatrix[m][n];
+  }
+  return sum;
 }
