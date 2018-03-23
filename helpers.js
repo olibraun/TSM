@@ -37,3 +37,9 @@ function calcDistance(order) {
   }
   return sum;
 }
+
+function setupCities() {
+  for (let i = 0; i < numberOfCities; i++) {
+    cities.push(new City());
+  }
+}

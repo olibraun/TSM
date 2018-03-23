@@ -5,11 +5,13 @@
 function setup() {
   createCanvas(400, 400);
   background(51);
-  for(let i=0; i < numberOfCities; i++) {
-    cities.push(new City());
-  }
+
+  // Set up cities
+  setupCities();
+
   // Create distance matrix:
   fillDistanceMatrix();
+
   // Dom element for current distance
   distanceText = createP();
 }
