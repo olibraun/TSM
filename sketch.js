@@ -6,19 +6,6 @@ let numberOfCities = 5;
 // [...Array(n).keys()] creates the array [0, 1, ..., n-1]
 let indexArray = [...Array(numberOfCities).keys()]
 
-function display(order) {
-  push();
-  stroke(255);
-  strokeWeight(2);
-  noFill();
-  beginShape();
-  for(let i=0; i<numberOfCities; i++) {
-    vertex(cities[i].x, cities[i].y);
-  }
-  endShape();
-  pop();
-}
-
 function setup() {
   createCanvas(400, 400);
   background(51);
@@ -47,4 +34,17 @@ class City {
     point(this.x, this.y);
     pop();
   }
+}
+
+function display(order) {
+  push();
+  stroke(255);
+  strokeWeight(2);
+  noFill();
+  beginShape();
+  for(let i=0; i<numberOfCities; i++) {
+    vertex(cities[i].x, cities[i].y);
+  }
+  endShape();
+  pop();
 }
