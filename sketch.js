@@ -33,5 +33,5 @@ function draw() {
   displayPath(indexArray, true);
 
   // Display current distance
-  distanceText.html(currentDistance);
+  distanceText.html(nf(currentDistance, 0, 2));
 }
