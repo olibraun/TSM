@@ -19,7 +19,7 @@ function displayPath(order, highlight) {
 
 function fillDistanceMatrix() {
   for (let i = 0; i < numberOfCities; i++) {
-    // Check if the respective subarray is alredy defined
+    // Check if the respective subarray is already defined
     if (!distanceMatrix[i]) {
       distanceMatrix[i] = [];
     }
