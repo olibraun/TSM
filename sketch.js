@@ -15,20 +15,7 @@ function setup() {
     cities.push(new City());
   }
   // Create distance matrix:
-  for(let i=0; i < numberOfCities; i++) {
-    // Check if the respective subarray is alredy defined
-    if(!distanceMatrix[i]) {
-      distanceMatrix[i] = [];
-    }
-    for(let j=0; j < numberOfCities; j++) {
-      const x1 = cities[i].x;
-      const y1 = cities[i].y;
-      const x2 = cities[j].x;
-      const y2 = cities[j].y;
-      const dist = (x1-x2)*(x1-x2) + (y1-y2)*(y1-y2);
-      distanceMatrix[i][j] = dist;
-    }
-  }
+  fillDistanceMatrix();
 }
 
 function draw() {
@@ -64,4 +51,21 @@ function display(order) {
   }
   endShape();
   pop();
+}
+
+function fillDistanceMatrix() {
+  for (let i = 0; i < numberOfCities; i++) {
+    // Check if the respective subarray is alredy defined
+    if (!distanceMatrix[i]) {
+      distanceMatrix[i] = [];
+    }
+    for (let j = 0; j < numberOfCities; j++) {
+      const x1 = cities[i].x;
+      const y1 = cities[i].y;
+      const x2 = cities[j].x;
+      const y2 = cities[j].y;
+      const dist = (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2);
+      distanceMatrix[i][j] = dist;
+    }
+  }
 }
