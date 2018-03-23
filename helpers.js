@@ -5,7 +5,8 @@ function displayPath(order) {
   noFill();
   beginShape();
   for(let i=0; i<numberOfCities; i++) {
-    vertex(cities[i].x, cities[i].y);
+    const n = order[i];
+    vertex(cities[n].x, cities[n].y);
   }
   endShape();
   pop();
