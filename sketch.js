@@ -27,12 +27,7 @@ function draw() {
   const currentDistance = calcDistance(indexArray);
 
   // "Optimization"
-  const newIndexArray = shuffle(indexArray);
-  displayPath(newIndexArray, false);
-  const newDistance = calcDistance(newIndexArray);
-  if(newDistance < currentDistance) {
-    indexArray = newIndexArray;
-  }
+  shuffleOptimization(currentDistance);
 
   // Display path
   displayPath(indexArray, true);
