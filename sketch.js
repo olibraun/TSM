@@ -17,15 +17,25 @@ function setup() {
 }
 
 function draw() {
+  background(51);
   // Display cities
   cities.forEach(city => {
     city.show();
   });
 
+  // Calculate current distance
+  const currentDistance = calcDistance(indexArray);
+
+  // "Optimization"
+  const newIndexArray = shuffle(indexArray);
+  const newDistance = calcDistance(newIndexArray);
+  if(newDistance < currentDistance) {
+    indexArray = newIndexArray;
+  }
+
   // Display path
   displayPath(indexArray);
 
-  // Calculate and display current distance
-  const currentDistance = calcDistance(indexArray);
+  // Display current distance
   distanceText.html(currentDistance);
 }
