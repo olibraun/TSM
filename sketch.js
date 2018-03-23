@@ -17,10 +17,15 @@ function setup() {
 }
 
 function draw() {
+  // Display cities
   cities.forEach(city => {
     city.show();
   });
+
+  // Display path
   displayPath(indexArray);
+
+  // Calculate and display current distance
   const currentDistance = calcDistance(indexArray);
   distanceText.html(currentDistance);
 }
