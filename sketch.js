@@ -6,7 +6,7 @@ let numberOfCities = 5;
 function setup() {
   createCanvas(400, 400);
   background(51);
-  for(let i=0; i< numberOfCities; i++) {
+  for(let i=0; i < numberOfCities; i++) {
     cities.push(new City());
   }
 }
