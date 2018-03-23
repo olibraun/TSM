@@ -20,7 +20,7 @@ function draw() {
   cities.forEach(city => {
     city.show();
   });
-  display(indexArray);
+  displayPath(indexArray);
   const currentDistance = calcDistance(indexArray);
   distanceText.html(currentDistance);
 }

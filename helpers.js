@@ -1,4 +1,4 @@
-function display(order) {
+function displayPath(order) {
   push();
   stroke(255);
   strokeWeight(2);
