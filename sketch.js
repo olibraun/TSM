@@ -28,13 +28,14 @@ function draw() {
 
   // "Optimization"
   const newIndexArray = shuffle(indexArray);
+  displayPath(newIndexArray, false);
   const newDistance = calcDistance(newIndexArray);
   if(newDistance < currentDistance) {
     indexArray = newIndexArray;
   }
 
   // Display path
-  displayPath(indexArray);
+  displayPath(indexArray, true);
 
   // Display current distance
   distanceText.html(currentDistance);

@@ -1,7 +1,12 @@
-function displayPath(order) {
+function displayPath(order, highlight) {
   push();
-  stroke(255);
-  strokeWeight(2);
+  if(highlight) {
+    stroke(255, 0, 255);
+    strokeWeight(3);
+  } else {
+    stroke(255);
+    strokeWeight(1);
+  }
   noFill();
   beginShape();
   for(let i=0; i<numberOfCities; i++) {
