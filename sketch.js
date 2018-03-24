@@ -14,6 +14,9 @@ function setup() {
 
   // Dom element for current distance
   distanceText = createP();
+
+  // Logger to log and display distance improvements
+  logger = new Logger();
 }
 
 function draw() {
@@ -26,6 +29,9 @@ function draw() {
   // Calculate current distance
   const currentDistance = calcDistance(indexArray);
 
+  // Log current distance if it is improved
+  logger.log(currentDistance);
+
   // "Optimization"
   shuffleOrSwap(currentDistance);
 
@@ -34,4 +40,21 @@ function draw() {
 
   // Display current distance
   distanceText.html(nf(currentDistance, 0, 2));
+}
+
+class Logger {
+  constructor() {
+    this.distances = [];
+  }
+
+  log(dist) {
+    if(dist < recordDistance) {
+      this.distances.push(dist);
+      recordDistance = dist;
+    }
+  }
+
+  display() {
+    return;
+  }
 }

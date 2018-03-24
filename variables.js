@@ -9,3 +9,7 @@ let indexArray = [...Array(numberOfCities).keys()];
 let distanceMatrix = [];
 
 let distanceText;
+
+let recordDistance = Infinity;
+
+let logger;
