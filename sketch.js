@@ -29,11 +29,6 @@ function draw() {
   //Redraw background
   cityGraphics.background(51);
 
-  // Display cities
-  cities.forEach(city => {
-    city.show();
-  });
-
   // Calculate current distance
   const currentDistance = calcDistance(indexArray);
 
@@ -45,6 +40,11 @@ function draw() {
 
   // Display path
   displayPath(indexArray, true);
+
+  // Display cities
+  cities.forEach(city => {
+    city.show();
+  });
 
   // Display current distance
   distanceText.html(nf(currentDistance, 0, 2));
