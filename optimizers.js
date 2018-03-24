@@ -20,9 +20,35 @@ function swapTwoRandomNeighbors(currentDistance) {
 }
 
 function shuffleOrSwap(currentDistance) {
-  if(random(1) < 0.5) {
+  const rand = random(1);
+  if(rand < 0.3) {
     shuffleOptimization(currentDistance)
-  } else {
+  } else if(rand >= 0.3 && rand < 0.6) {
     swapTwoRandomNeighbors(currentDistance)
+  } else {
+    swapNonNeighbors(currentDistance);
   }
+}
+
+function swapNonNeighbors(currentDistance) {
+  const newIndexArray = indexArray.slice();
+  for(let i=0; i<indexArray.length; i++) {
+    for(let j=i+2; j<indexArray.length; j++) {
+      swap(newIndexArray, i, j);
+      let newDistance = calcDistance(newIndexArray);
+      if (newDistance < currentDistance) {
+        indexArray = newIndexArray;
+      } else {
+        swap(newIndexArray, i, j);
+      }
+      swap(newIndexArray, i+1, j);
+      newDistance = calcDistance(newIndexArray);
+      if (newDistance < currentDistance) {
+        indexArray = newIndexArray;
+      } else {
+        swap(newIndexArray, i+1, j);
+      }
+    }
+  }
+  displayPath(newIndexArray, false);
 }
