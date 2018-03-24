@@ -1,20 +1,20 @@
 function displayPath(order, highlight) {
-  push();
+  cityGraphics.push();
   if(highlight) {
-    stroke(255, 0, 255);
-    strokeWeight(3);
+    cityGraphics.stroke(255, 0, 255);
+    cityGraphics.strokeWeight(3);
   } else {
-    stroke(255);
-    strokeWeight(1);
+    cityGraphics.stroke(255);
+    cityGraphics.strokeWeight(1);
   }
-  noFill();
-  beginShape();
+  cityGraphics.noFill();
+  cityGraphics.beginShape();
   for(let i=0; i<numberOfCities; i++) {
     const n = order[i];
-    vertex(cities[n].x, cities[n].y);
+    cityGraphics.vertex(cities[n].x, cities[n].y);
   }
-  endShape();
-  pop();
+  cityGraphics.endShape();
+  cityGraphics.pop();
 }
 
 function fillDistanceMatrix() {

@@ -3,8 +3,14 @@
 // Find global variables in variables.js
 
 function setup() {
-  createCanvas(400, 400);
-  background(51);
+  // Set up "split canvas"
+  createCanvas(2 * myGraphicsWidth, myGraphicsHeight);
+
+  cityGraphics = createGraphics(myGraphicsWidth, myGraphicsHeight);
+  diagramGraphics = createGraphics(myGraphicsWidth, myGraphicsHeight);
+
+  cityGraphics.background(51);
+  diagramGraphics.background(61);
 
   // Set up cities
   setupCities();
@@ -20,7 +26,9 @@ function setup() {
 }
 
 function draw() {
-  background(51);
+  //Redraw background
+  cityGraphics.background(51);
+
   // Display cities
   cities.forEach(city => {
     city.show();
@@ -40,6 +48,10 @@ function draw() {
 
   // Display current distance
   distanceText.html(nf(currentDistance, 0, 2));
+
+  // Draw the two graphics buffers to the canvas
+  image(cityGraphics, 0, 0);
+  image(diagramGraphics, myGraphicsWidth, 0);
 }
 
 class Logger {

@@ -1,3 +1,9 @@
+let myGraphicsWidth = 400;
+let myGraphicsHeight = 400;
+
+let cityGraphics;
+let diagramGraphics;
+
 let cities = [];
 
 let numberOfCities = 20;

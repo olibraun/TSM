@@ -1,14 +1,14 @@
 class City {
   constructor() {
-    this.x = random(width);
-    this.y = random(height);
+    this.x = random(myGraphicsWidth);
+    this.y = random(myGraphicsHeight);
   }
 
   show() {
-    push();
-    stroke(255);
-    strokeWeight(10);
-    point(this.x, this.y);
-    pop();
+    cityGraphics.push();
+    cityGraphics.stroke(255);
+    cityGraphics.strokeWeight(10);
+    cityGraphics.point(this.x, this.y);
+    cityGraphics.pop();
   }
 }
