@@ -20,14 +20,10 @@ function swapTwoRandomNeighbors(currentDistance) {
 }
 
 function shuffleOrSwap(currentDistance) {
-  const rand = random(1);
-  if(rand < 0.3) {
-    shuffleOptimization(currentDistance)
-  } else if(rand >= 0.3 && rand < 0.6) {
-    swapTwoRandomNeighbors(currentDistance)
-  } else {
-    swapNonNeighbors(currentDistance);
-  }
+  const optimizers = [shuffleOptimization, swapTwoRandomNeighbors, swapNonNeighbors]
+  optimizers.forEach(f => {
+    f(currentDistance);
+  });
 }
 
 function swapNonNeighbors(currentDistance) {
