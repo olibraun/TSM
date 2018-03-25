@@ -49,24 +49,9 @@ function draw() {
   // Display current distance
   distanceText.html(nf(currentDistance, 0, 2));
 
+  logger.display();
+
   // Draw the two graphics buffers to the canvas
   image(cityGraphics, 0, 0);
   image(diagramGraphics, myGraphicsWidth, 0);
-}
-
-class Logger {
-  constructor() {
-    this.distances = [];
-  }
-
-  log(dist) {
-    if(dist < recordDistance) {
-      this.distances.push(dist);
-      recordDistance = dist;
-    }
-  }
-
-  display() {
-    return;
-  }
 }
