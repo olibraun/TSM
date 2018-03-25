@@ -11,6 +11,7 @@ class Logger {
   }
 
   display() {
+    diagramGraphics.background(51);
     diagramGraphics.push();
     diagramGraphics.stroke(255);
     diagramGraphics.strokeWeight(10);
@@ -19,7 +20,7 @@ class Logger {
     const max = l > 0 ? this.distances[0] : 1;
     const scaling = l > 0 ? myGraphicsHeight/max : 0;
     for(let i=0; i < l; i++) {
-      diagramGraphics.point(i*spacing, this.distances[i]*scaling);
+      diagramGraphics.point(i*spacing, myGraphicsHeight - this.distances[i]*scaling);
     }
     diagramGraphics.pop();
   }
