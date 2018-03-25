@@ -4,7 +4,7 @@ function displayPath(order, highlight) {
     cityGraphics.stroke(255, 0, 255);
     cityGraphics.strokeWeight(3);
   } else {
-    cityGraphics.stroke(255);
+    cityGraphics.stroke(255, 80);
     cityGraphics.strokeWeight(1);
   }
   cityGraphics.noFill();
